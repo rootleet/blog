@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+    <div class="container">
+        <div class="row d-flex flex-wrap justify-content-center">
+
+            {% for post in posts %}
+            <div class="col-sm-7 p-2">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <strong class="card-title">{{ post.author }}</strong>
+                        <button class="float-right btn btn-sm">M</button>
+                    </div>
+                    <div class="card-body">
+
+                        <p class="text-muted card-text">
+
+                            {{ post.body }}
+
+
+
+                        </p>
+                        <i class="text-muted">12:00</i>
+                    </div>
+                    <div class="card-footer">
+                        <div class="w-100 d-flex flex-wrap justify-content-between">
+                            <button class="rounded-0 btn btn-light">
+                                 Likes (10)
+                            </button>
+                            <button class="rounded-0 btn btn-light">
+                                Comments (10)
+                            </button>
+                            <button class="rounded-0 btn btn-light">
+                                Shares (10)
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form action="#">
+                            <input type="text" placeholder="Add Comment" class="form-control rounded-0">
+                            <button type="submit" style="display: none!important"></button>
+                        </form>
+                        <hr>
+                        {% for comment in post.comments %}
+                            <div class="comment mb-2">
+                                <strong class="text-primary">@{{ comment.user }}</strong>
+                                <p class="p-2 text-muted border rounded-sm">
+                                    <small>{{ comment.comment }}</small>
+                                </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+{% endblock %}

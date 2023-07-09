@@ -1,0 +1,11 @@
+header{
+    height: 10vh !important;
+    width: 100%;
+    overflow: hidden;
+}
+
+article{
+    height: 90vh !important;
+    overflow: auto;
+    width: 100%;
+}
